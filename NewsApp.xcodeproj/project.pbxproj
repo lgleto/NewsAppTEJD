@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6C453E862052FC2000CB06D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453E852052FC2000CB06D1 /* AppDelegate.swift */; };
-		6C453E882052FC2000CB06D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453E872052FC2000CB06D1 /* ViewController.swift */; };
 		6C453E8B2052FC2000CB06D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C453E892052FC2000CB06D1 /* Main.storyboard */; };
 		6C453E8E2052FC2000CB06D1 /* NewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C453E8C2052FC2000CB06D1 /* NewsApp.xcdatamodeld */; };
 		6C453E902052FC2000CB06D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C453E8F2052FC2000CB06D1 /* Assets.xcassets */; };
 		6C453E932052FC2000CB06D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C453E912052FC2000CB06D1 /* LaunchScreen.storyboard */; };
 		6C453E9E2052FC2000CB06D1 /* NewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453E9D2052FC2000CB06D1 /* NewsAppTests.swift */; };
 		6C453EA92052FC2000CB06D1 /* NewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453EA82052FC2000CB06D1 /* NewsAppUITests.swift */; };
+		6C453EB72052FFE200CB06D1 /* NewsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453EB62052FFE200CB06D1 /* NewsTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		6C453E822052FC2000CB06D1 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C453E852052FC2000CB06D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C453E872052FC2000CB06D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C453E8A2052FC2000CB06D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C453E8D2052FC2000CB06D1 /* NewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp.xcdatamodel; sourceTree = "<group>"; };
 		6C453E8F2052FC2000CB06D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		6C453EA42052FC2000CB06D1 /* NewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C453EA82052FC2000CB06D1 /* NewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITests.swift; sourceTree = "<group>"; };
 		6C453EAA2052FC2000CB06D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C453EB62052FFE200CB06D1 /* NewsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +99,8 @@
 		6C453E842052FC2000CB06D1 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				6C453EB62052FFE200CB06D1 /* NewsTVC.swift */,
 				6C453E852052FC2000CB06D1 /* AppDelegate.swift */,
-				6C453E872052FC2000CB06D1 /* ViewController.swift */,
 				6C453E892052FC2000CB06D1 /* Main.storyboard */,
 				6C453E8F2052FC2000CB06D1 /* Assets.xcassets */,
 				6C453E912052FC2000CB06D1 /* LaunchScreen.storyboard */,
@@ -262,8 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C453E882052FC2000CB06D1 /* ViewController.swift in Sources */,
 				6C453E862052FC2000CB06D1 /* AppDelegate.swift in Sources */,
+				6C453EB72052FFE200CB06D1 /* NewsTVC.swift in Sources */,
 				6C453E8E2052FC2000CB06D1 /* NewsApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
