@@ -15,6 +15,7 @@
 		6C453E9E2052FC2000CB06D1 /* NewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453E9D2052FC2000CB06D1 /* NewsAppTests.swift */; };
 		6C453EA92052FC2000CB06D1 /* NewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453EA82052FC2000CB06D1 /* NewsAppUITests.swift */; };
 		6C453EB72052FFE200CB06D1 /* NewsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C453EB62052FFE200CB06D1 /* NewsTVC.swift */; };
+		6C886FEB20581AE000EB823C /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C886FEA20581AE000EB823C /* HttpRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6C453EA82052FC2000CB06D1 /* NewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITests.swift; sourceTree = "<group>"; };
 		6C453EAA2052FC2000CB06D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C453EB62052FFE200CB06D1 /* NewsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVC.swift; sourceTree = "<group>"; };
+		6C886FEA20581AE000EB823C /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				6C453EB62052FFE200CB06D1 /* NewsTVC.swift */,
+				6C886FEA20581AE000EB823C /* HttpRequest.swift */,
 				6C453E852052FC2000CB06D1 /* AppDelegate.swift */,
 				6C453E892052FC2000CB06D1 /* Main.storyboard */,
 				6C453E8F2052FC2000CB06D1 /* Assets.xcassets */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C453E862052FC2000CB06D1 /* AppDelegate.swift in Sources */,
+				6C886FEB20581AE000EB823C /* HttpRequest.swift in Sources */,
 				6C453EB72052FFE200CB06D1 /* NewsTVC.swift in Sources */,
 				6C453E8E2052FC2000CB06D1 /* NewsApp.xcdatamodeld in Sources */,
 			);

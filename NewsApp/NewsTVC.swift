@@ -14,6 +14,16 @@ class NewsTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //new object
+        //let httpRequest = HttpRequest()
+        
+        //singleton
+        let httpRequest = HttpRequest.sharedInstance
+        httpRequest.getAllNews(endpoint: ENDPOINT_SPORTS) { _ in
+            
+        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
