@@ -14,28 +14,56 @@
         <scene sceneID="JL1-or-tkH">
             <objects>
                 <tableViewController id="vIo-B0-Pu7" customClass="NewsTVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7GT-xW-luC">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7GT-xW-luC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" textLabel="X44-VH-Rga" style="IBUITableViewCellStyleDefault" id="etu-oX-cgQ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="100" id="etu-oX-cgQ" customClass="NewsTVCell" customModule="NewsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="etu-oX-cgQ" id="gbo-TJ-BC6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X44-VH-Rga">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WmQ-gT-j0a">
+                                            <rect key="frame" x="16" y="7" width="84" height="84"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="84" id="dGW-Ar-3tG"/>
+                                                <constraint firstAttribute="width" constant="84" id="ihc-wI-6vv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9G-AI-zFs">
+                                            <rect key="frame" x="108" y="11" width="251" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-HP-AJr">
+                                            <rect key="frame" x="108" y="40" width="251" height="49"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="49" id="OzS-Yu-Bax"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="k9G-AI-zFs" firstAttribute="top" secondItem="gbo-TJ-BC6" secondAttribute="top" constant="11" id="1f4-Qq-9rN"/>
+                                        <constraint firstItem="k9G-AI-zFs" firstAttribute="leading" secondItem="WmQ-gT-j0a" secondAttribute="trailing" constant="8" id="4vH-YT-Dbd"/>
+                                        <constraint firstItem="WmQ-gT-j0a" firstAttribute="leading" secondItem="gbo-TJ-BC6" secondAttribute="leading" constant="16" id="G7d-Qa-0Dm"/>
+                                        <constraint firstItem="WmQ-gT-j0a" firstAttribute="centerY" secondItem="gbo-TJ-BC6" secondAttribute="centerY" id="Ugo-cU-rfe"/>
+                                        <constraint firstAttribute="trailing" secondItem="k9G-AI-zFs" secondAttribute="trailing" constant="16" id="Uy0-04-PZy"/>
+                                        <constraint firstItem="ro8-HP-AJr" firstAttribute="top" secondItem="k9G-AI-zFs" secondAttribute="bottom" constant="8" id="bvA-T0-77y"/>
+                                        <constraint firstAttribute="trailing" secondItem="ro8-HP-AJr" secondAttribute="trailing" constant="16" id="cro-gS-zjZ"/>
+                                        <constraint firstItem="ro8-HP-AJr" firstAttribute="leading" secondItem="WmQ-gT-j0a" secondAttribute="trailing" constant="8" id="eOd-5q-OJs"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="labelDescription" destination="ro8-HP-AJr" id="Mxg-dm-jgq"/>
+                                    <outlet property="labelTitle" destination="k9G-AI-zFs" id="Gkm-cE-jDt"/>
+                                    <outlet property="newsImageView" destination="WmQ-gT-j0a" id="HFu-Gm-XzW"/>
                                     <segue destination="YSB-iW-0aD" kind="show" id="dr8-03-ho2"/>
                                 </connections>
                             </tableViewCell>
@@ -49,7 +77,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdY-g8-gSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-36" y="90"/>
+            <point key="canvasLocation" x="-36" y="89.505247376311857"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XXE-Xq-Dyx">

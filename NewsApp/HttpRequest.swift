@@ -11,13 +11,13 @@ import Foundation
 let BASE_API = "https://newsapi.org/v2/"
 let ENDPOINT_SPORTS = "top-headlines?country=pt&category=sports"
 let ENDPOINT_BUSINESS = "top-headlines?country=pt&category=business"
-let API_KEY = "&apiKey="
+let API_KEY = "&apiKey=1765f87e4ebc40229e80fd0f75b6416c"
 
 class HttpRequest {
     
     static let sharedInstance : HttpRequest = HttpRequest()
     
-    public func getAllNews(endpoint: String , result: (String)->() ){
+    public func getAllNews(endpoint: String , result: @escaping ([[String:AnyObject]])->() ){
         
         let urlAndEndPoint : String  = BASE_API + endpoint + API_KEY
         
@@ -48,16 +48,23 @@ class HttpRequest {
             
             //let dataStr = String.init(data: responseData, encoding: String.Encoding.utf8)
             //print(dataStr!)
+            //result(dataStr!)
+            
             
             do {
                 guard let jsonData = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String:AnyObject] else {
                     return 
                 }
-                
+                if jsonData["status"]! as! String == "ok" {
+                    let newsArray : [[String:AnyObject]] = (jsonData["articles"] as? [[String:AnyObject]])!
+                    //print (newsArray)
+                    
+                    result(newsArray)
+                }
                 print (jsonData["status"]!)
             
             }catch{
-                
+                 print ("erro na conversão do json")
             }
             
             
