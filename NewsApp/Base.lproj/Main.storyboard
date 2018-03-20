@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NewsTVC-->
+        <!--Notícias-->
         <scene sceneID="JL1-or-tkH">
             <objects>
                 <tableViewController id="vIo-B0-Pu7" customClass="NewsTVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WmQ-gT-j0a">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_receipt_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="WmQ-gT-j0a">
                                             <rect key="frame" x="16" y="7" width="84" height="84"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="84" id="dGW-Ar-3tG"/>
@@ -73,26 +73,45 @@
                             <outlet property="delegate" destination="vIo-B0-Pu7" id="NdM-fx-7bR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kQ1-Js-9I8"/>
+                    <navigationItem key="navigationItem" title="Notícias" id="kQ1-Js-9I8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdY-g8-gSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-36" y="89.505247376311857"/>
         </scene>
-        <!--View Controller-->
+        <!--News DetailVC-->
         <scene sceneID="XXE-Xq-Dyx">
             <objects>
-                <viewController id="YSB-iW-0aD" sceneMemberID="viewController">
+                <viewController id="YSB-iW-0aD" customClass="NewsDetailVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYb-Gg-TAp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-Sr-87S">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ab0-Sr-87S" firstAttribute="bottom" secondItem="b6z-Lt-Dwh" secondAttribute="bottom" id="0CX-bw-CYy"/>
+                            <constraint firstItem="ab0-Sr-87S" firstAttribute="top" secondItem="b6z-Lt-Dwh" secondAttribute="top" id="Leo-kY-DEC"/>
+                            <constraint firstAttribute="trailing" secondItem="ab0-Sr-87S" secondAttribute="trailing" id="WVC-he-qhv"/>
+                            <constraint firstItem="ab0-Sr-87S" firstAttribute="leading" secondItem="IYb-Gg-TAp" secondAttribute="leading" id="v9m-vo-IF1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b6z-Lt-Dwh"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="ab0-Sr-87S" id="dsf-Ya-02h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGS-90-qRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="793" y="90"/>
+            <point key="canvasLocation" x="792.79999999999995" y="89.505247376311857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xrf-uE-ZcB">
@@ -113,4 +132,7 @@
             <point key="canvasLocation" x="-855" y="90"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_receipt_48pt" width="48" height="48"/>
+    </resources>
 </document>
