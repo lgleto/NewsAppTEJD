@@ -29,11 +29,17 @@ public class News: NSManagedObject {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
         request.predicate =  NSPredicate(format: "url = %@", (dictionary["url" ] as? String)!)
         
+
+       //if let _ = (try? context.fetch(request))?.first as? Post {
+       //     return updateItemFromDictionary(dictionary, inManagedObjectContext: context)
+       // }
         
-        if let _ = (try? context.fetch(request).first as? News  ){
-            return News.updateNewsFromDictionary(dictionary, context:context)
-            
-        }else {
+        
+        if let fetchResults = try? context.fetch(request)   {
+            if fetchResults.count > 1 {
+                return News.updateNewsFromDictionary(dictionary, context:context)
+            }
+            else {
             if let news = NSEntityDescription.insertNewObject(forEntityName: "News", into: context) as? News {
                 
                 news.title       = dictionary["title"        ] as? String
@@ -46,7 +52,7 @@ public class News: NSManagedObject {
             }
         
         }
-    
+        }
         return nil
 
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a8X-eC-mi0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9rG-9X-dfZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,9 +77,27 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdY-g8-gSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-36" y="89.505247376311857"/>
+            <point key="canvasLocation" x="-33" y="90"/>
         </scene>
-        <!--News DetailVC-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="9Wb-j6-A9W">
+            <objects>
+                <tabBarController id="9rG-9X-dfZ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Smr-SV-8Rv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="a8X-eC-mi0" kind="relationship" relationship="viewControllers" id="Hu2-2p-uhl"/>
+                        <segue destination="53u-EE-ukW" kind="relationship" relationship="viewControllers" id="nHH-EL-Txr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0T-J7-IH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1961" y="426"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="XXE-Xq-Dyx">
             <objects>
                 <viewController id="YSB-iW-0aD" customClass="NewsDetailVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-Sr-87S">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -105,7 +123,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b6z-Lt-Dwh"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="0aD-PL-7tz">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ic_bookmark_border" id="A8U-pw-ZWb">
+                            <connections>
+                                <action selector="bookMarkButtonTouched:" destination="YSB-iW-0aD" id="uq3-xg-dcn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bookMarkButton" destination="A8U-pw-ZWb" id="aeI-Ta-G34"/>
                         <outlet property="webView" destination="ab0-Sr-87S" id="dsf-Ya-02h"/>
                     </connections>
                 </viewController>
@@ -117,6 +145,7 @@
         <scene sceneID="xrf-uE-ZcB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a8X-eC-mi0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="n6J-My-hpu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U7n-Gh-RZL">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -131,8 +160,100 @@
             </objects>
             <point key="canvasLocation" x="-855" y="90"/>
         </scene>
+        <!--Notícias-->
+        <scene sceneID="II4-0y-EFb">
+            <objects>
+                <tableViewController id="7hd-T6-Vml" customClass="FavoriteNewsTVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VNY-hv-oE6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="100" id="bpP-qc-2kb" customClass="NewsTVCell" customModule="NewsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bpP-qc-2kb" id="1QB-Rn-AE4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_receipt_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="BH2-6T-nXB">
+                                            <rect key="frame" x="16" y="7" width="84" height="84"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="84" id="Dct-wZ-2fl"/>
+                                                <constraint firstAttribute="width" constant="84" id="vj3-vG-wjX"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3J-kt-ozC">
+                                            <rect key="frame" x="108" y="11" width="251" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xC-mi-lXv">
+                                            <rect key="frame" x="108" y="40" width="251" height="49"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="49" id="Cu8-Fc-QM0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BH2-6T-nXB" firstAttribute="leading" secondItem="1QB-Rn-AE4" secondAttribute="leading" constant="16" id="2vw-VH-8IV"/>
+                                        <constraint firstItem="3xC-mi-lXv" firstAttribute="leading" secondItem="BH2-6T-nXB" secondAttribute="trailing" constant="8" id="4va-36-mLT"/>
+                                        <constraint firstAttribute="trailing" secondItem="Y3J-kt-ozC" secondAttribute="trailing" constant="16" id="6LC-bl-KBn"/>
+                                        <constraint firstItem="Y3J-kt-ozC" firstAttribute="top" secondItem="1QB-Rn-AE4" secondAttribute="top" constant="11" id="CX1-jd-wyS"/>
+                                        <constraint firstItem="Y3J-kt-ozC" firstAttribute="leading" secondItem="BH2-6T-nXB" secondAttribute="trailing" constant="8" id="DYl-4b-OuR"/>
+                                        <constraint firstAttribute="trailing" secondItem="3xC-mi-lXv" secondAttribute="trailing" constant="16" id="Eoj-qM-bYD"/>
+                                        <constraint firstItem="3xC-mi-lXv" firstAttribute="top" secondItem="Y3J-kt-ozC" secondAttribute="bottom" constant="8" id="jLm-ga-ben"/>
+                                        <constraint firstItem="BH2-6T-nXB" firstAttribute="centerY" secondItem="1QB-Rn-AE4" secondAttribute="centerY" id="y6e-p6-KDj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="labelDescription" destination="3xC-mi-lXv" id="X6g-tS-k6h"/>
+                                    <outlet property="labelTitle" destination="Y3J-kt-ozC" id="nVq-Ax-acu"/>
+                                    <outlet property="newsImageView" destination="BH2-6T-nXB" id="HSJ-lg-cR9"/>
+                                    <segue destination="YSB-iW-0aD" kind="show" id="6K7-cX-P7h"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7hd-T6-Vml" id="gct-8m-UfK"/>
+                            <outlet property="delegate" destination="7hd-T6-Vml" id="7BS-kh-iHD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Notícias" id="KSM-2V-zQe"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aEP-Cs-akm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34" y="840"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="32K-xY-s3C">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="53u-EE-ukW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="rEv-f6-fwv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0qB-08-ojN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7hd-T6-Vml" kind="relationship" relationship="rootViewController" id="fwB-a4-U7c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6NT-Vc-66A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-855" y="840"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ic_bookmark_border" width="24" height="24"/>
         <image name="ic_receipt_48pt" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6K7-cX-P7h"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,9 @@ import WebKit
 
 class NewsDetailVC: UIViewController {
     
+    let bookmarked = UIImage(named: "ic_bookmark")
+    let unBookmarked = UIImage(named: "ic_bookmark_border")
+    
     private var _news: News?
 
     var news : News {
@@ -22,8 +25,17 @@ class NewsDetailVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var bookMarkButton: UIBarButtonItem!
     @IBOutlet weak var webView: WKWebView!
     
+    @IBAction func bookMarkButtonTouched(_ sender: UIBarButtonItem) {
+        self._news?.isFavorite = !(self._news?.isFavorite)!
+        bookMarkButton.image = (_news?.isFavorite)! ? bookmarked : unBookmarked
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            appDelegate.saveContext()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +45,9 @@ class NewsDetailVC: UIViewController {
             webView.load(URLRequest.init(url: url))
         }
         
-        self.title = _news?.title
+        self.title = _news?.title?.tenChar()
+        
+        bookMarkButton.image = (_news?.isFavorite)! ? bookmarked : unBookmarked
         
 
         // Do any additional setup after loading the view.
@@ -55,4 +69,10 @@ class NewsDetailVC: UIViewController {
     }
     */
 
+}
+
+extension String {
+    func tenChar () -> String{
+        return String(self.prefix(10))
+    }
 }

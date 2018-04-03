@@ -1,15 +1,15 @@
 //
-//  NewsTVC.swift
+//  FavoriteNews.swift
 //  NewsApp
 //
-//  Created by Lourenço Gomes on 09/03/18.
+//  Created by Lourenço Gomes on 03/04/18.
 //  Copyright © 2018 Lourenço Gomes. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class NewsTVC: CoreDataTableViewController {
+class FavoriteNewsTVC: CoreDataTableViewController {
     
     //let dias : [String] = ["segunda","terça","quarta","quinta","sexta"]
     
@@ -26,15 +26,17 @@ class NewsTVC: CoreDataTableViewController {
     func updateUI(){
         if let ctx = context {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
-            request.predicate = nil
-            request.sortDescriptors = []
+            request.predicate = NSPredicate(format: "isFavorite=true" )
+            request.sortDescriptors = [
+                NSSortDescriptor(key: "title", ascending: true)
+            ]
             
             fetchedResultsController =  NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: ctx,
                 sectionNameKeyPath: nil,
                 cacheName: nil)
-
+            
         }else{
             fetchedResultsController = nil
         }
@@ -66,7 +68,7 @@ class NewsTVC: CoreDataTableViewController {
         //let httpRequest = HttpRequest()
         
         //singleton
-  
+        
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -88,14 +90,14 @@ class NewsTVC: CoreDataTableViewController {
         return fetchedResultsController?.sections?.count ?? 1
     }
     
-
+    
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : NewsTVCell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsTVCell
         
         if let news = fetchedResultsController?.object(at: indexPath) as? News {
-            cell.labelTitle.text = news.title?.tenChar()
+            cell.labelTitle.text = news.title
             cell.labelDescription.text = news.detail
             // Configure the cell...
             if let urlStr = news.urlToImage {
@@ -112,7 +114,7 @@ class NewsTVC: CoreDataTableViewController {
             }
             
         }
-
+        
         
         return cell
     }
@@ -154,12 +156,12 @@ class NewsTVC: CoreDataTableViewController {
      */
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
         if let newsDetailVC  : NewsDetailVC = segue.destination as? NewsDetailVC {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 //newsDetailVC.news = newsArray[indexPath.row]
@@ -169,7 +171,8 @@ class NewsTVC: CoreDataTableViewController {
             
         }
         
-     }
+    }
     
     
 }
+
